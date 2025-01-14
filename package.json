@@ -1,0 +1,115 @@
+{
+  "name": "latr",
+  "displayName": "Latr: Recent Files Tracker",
+  "description": "Identify the most recent files in a workspace project and provide a tree view.",
+  "version": "0.0.2",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:latr.showRecentFilesOS",
+    "onCommand:latr.showRecentFilesGit",
+    "onCommand:latr.toggleSortOrder",
+    "*"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "latr.showRecentFilesOS",
+        "title": "Latr: Show OS Modified Files"
+      },
+      {
+        "command": "latr.showRecentFilesGit",
+        "title": "Latr: Show Git Modified Files"
+      },
+      {
+        "command": "latr.toggleSortOrder",
+        "title": "Latr: Toggle Sort Order"
+      },
+      {
+        "command": "latr.openFromGitHistory",
+        "title": "Open from Git History"
+      }
+    ],
+    "menus": {
+      "view/item/context": [
+        {
+          "command": "latr.openFromGitHistory",
+          "when": "view == latrRecentFilesView && viewItem == latrFile",
+          "group": "navigation"
+        }
+      ]
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "latrRecentFilesView",
+          "name": "Latr Recent Files"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "Latr Configuration",
+      "properties": {
+        "latr.excludedFolders": {
+          "type": "array",
+          "default": [
+            "node_modules",
+            "venv",
+            "__pycache__",
+            ".git",
+            "target",
+            "bin",
+            "obj",
+            "build",
+            "dist"
+          ],
+          "description": "List of folders to exclude from Latr processing."
+        },
+        "latr.checkFileExistence": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable checking if files in the Git view exist in the workspace."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "jest"
+  },
+  "dependencies": {
+    "vscode": "^1.1.37"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.96.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.16.0",
+    "globals": "^15.14.0",
+    "jest": "^29.7.0",
+    "mock-fs": "^5.4.1",
+    "vscode-test": "^1.6.1"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/out/"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "testTimeout": 30000
+  }
+}
