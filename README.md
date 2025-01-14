@@ -1,6 +1,8 @@
 # Latr - Recent File Tracker
 
-Latr is a Visual Studio Code extension developed by Red Stack Labs Corp. that helps you identify and manage recently modified files in your workspace. With advanced tracking options, Latr allows you to view recent changes based on OS modification dates or Git commit history, making it an essential tool for developers managing active projects.
+Latr is a Visual Studio Code extension that helps you identify and manage recently modified files in your workspace. With advanced tracking options, Latr allows you to view recent changes based on OS modification dates or Git commit history, making it an essential tool for developers managing active projects.
+
+[Download LATR from the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=RedStack.latr)
 
 ## Features
 
