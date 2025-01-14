@@ -3,6 +3,10 @@
   "displayName": "Latr: Recent Files Tracker",
   "description": "Identify the most recent files in a workspace project and provide a tree view.",
   "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/redstackio/latr-vscode.git"
+  },
   "engines": {
     "vscode": "^1.96.0"
   },
